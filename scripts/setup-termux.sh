@@ -4,7 +4,7 @@
 set -Eeuo pipefail
 
 REPO_URL="https://github.com/Sidduhack/TMT-official-eSports.git"
-PROJECT_DIR="${TMT_PROJECT_DIR:-$HOME/TMT-official-eSports}"
+PROJECT_DIR="${TMT_PROJECT_DIR:-$HOME/projects/tmt-official}"
 START_DEV_SERVER=0
 SKIP_BUILD=0
 
