@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  color: #f4f4f5;
+  background: #08090c;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; min-height: 100%; background: #08090c; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+a { color: inherit; text-decoration: none; }
+
+.app-shell {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 28px clamp(22px, 6vw, 88px) 24px;
+  background:
+    radial-gradient(ellipse at 76% 45%, rgb(255 65 35 / 9%), transparent 38%),
+    linear-gradient(135deg, #08090c 0%, #101014 52%, #08090c 100%);
+}
+
+.app-shell::after {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  inset: 0;
+  opacity: .12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+}
+
+.ambient { position: absolute; z-index: -1; width: 360px; height: 360px; border-radius: 50%; filter: blur(110px); opacity: .16; }
+.ambient-one { top: 18%; right: -180px; background: #ff3d24; }
+.ambient-two { bottom: -250px; left: 15%; background: #702d25; }
+
+.topbar, .footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; letter-spacing: .12em; font-size: 12px; font-weight: 800; }
+.brand-mark { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid rgb(255 255 255 / 22%); border-radius: 11px; background: rgb(255 255 255 / 5%); font-size: 13px; }
+.brand-name { color: #b9b9bf; }
+.status, .eyebrow, .hero-meta, .footer { font-size: 10px; font-weight: 700; letter-spacing: .17em; color: #85858e; }
+.status { display: inline-flex; align-items: center; gap: 9px; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: #f15b40; box-shadow: 0 0 14px #f15b40; }
+
+.hero { width: min(100%, 920px); margin: auto 0; padding: 100px 0 110px; }
+.eyebrow { color: #f16a50; }
+h1 { margin: 25px 0 18px; font-size: clamp(58px, 11vw, 142px); line-height: .84; letter-spacing: -.095em; font-weight: 900; }
+h1 span { display: block; }
+h1 .accent { color: #f05b40; }
+.tagline { margin: 28px 0 12px; font-size: clamp(16px, 2vw, 21px); font-weight: 600; }
+.description { max-width: 510px; margin: 0; color: #92929b; font-size: 14px; line-height: 1.8; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 44px; padding-top: 18px; border-top: 1px solid rgb(255 255 255 / 10%); }
+.hero-meta strong { color: #f16a50; }
+.footer { padding-top: 18px; border-top: 1px solid rgb(255 255 255 / 9%); font-size: 9px; }
+
+@media (max-width: 560px) {
+  .app-shell { padding: 20px 20px 18px; }
+  .status { font-size: 8px; letter-spacing: .1em; }
+  .hero { padding: 80px 0; }
+  .footer { font-size: 8px; letter-spacing: .1em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
